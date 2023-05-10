@@ -65,11 +65,16 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8501,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+    eth1: {
+     host: "127.0.0.1",     // Localhost (default: none)
+     port: 8501,            // Standard Ethereum port (default: none)
+     network_id: "*",       // Any network (default: none)
+    },
+    eth2: {
+      host: "127.0.0.1",
+      port: 8503,
+      network_id: "*"
+    }
     //
     // An additional network, but with some advanced options…
     // advanced: {
@@ -77,30 +82,30 @@ module.exports = {
     //   network_id: 1342,       // Custom network
     //   gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
     //   gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
-    //   from: <address>,        // Account to send transactions from (default: accounts[0])
+    //   from: <address>,     x   // Account to send transactions from (default: accounts[0])
     //   websocket: true         // Enable EventEmitter interface for web3 (default: false)
     // },
     //
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
-    eth1: {
-      provider: () => new HDWalletProvider(
-        mnemonic,
-        'http://127.0.0.1:8501',
-        0,
-        1
-      ),
-      network_id: 1515,   
-      skipDryRun: true     
-    },
-    eth2: {
-      provider: () => new HDWalletProvider(
-        mnemonic,
-        'http://127.0.0.1:8503'
-        ),
-      network_id: 1516,     
-      skipDryRun: true     
-    },
+    // eth1: {
+    //   provider: () => new HDWalletProvider(
+    //     mnemonic,
+    //     'http://127.0.0.1:8501',
+    //     0,
+    //     1
+    //   ),
+    //   network_id: 1515,   
+    //   skipDryRun: true     
+    // },
+    // eth2: {
+    //   provider: () => new HDWalletProvider(
+    //     mnemonic,
+    //     'http://127.0.0.1:8503'
+    //     ),
+    //   network_id: 1516,     
+    //   skipDryRun: true     
+    // },
     //
     // Useful for private networks
     // private: {

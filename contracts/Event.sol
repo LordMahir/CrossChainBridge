@@ -1,10 +1,6 @@
 pragma solidity ^0.8.0;
 
-// Fire and Rec are two smart contracts 
-// Fire(fires an event) -> API(listens to the event && fires another event) -> Rec(listens to the event) 
-
-contract Fire {
-  address public admin;
+contract Event {
   string public data = "Hello other blockchain";
 
   enum Step { Send, Receive }
@@ -16,29 +12,21 @@ contract Fire {
     Step indexed step
   );
 
-  function sayHello() public pure returns(string memory){
-    return("hello world");
-  }
-
-  function send(address to, string data) external {
-    // token.burn(msg.sender, amount);
-    sayHello();
+  function send(address to, string memory _data) external {
     emit Transfer(
       msg.sender,
       to,
-      data,
+      _data,
       block.timestamp,
       Step.Send
     );
   } 
   
-    function receive(address to, string data) external {
-    require(msg.sender == admin, 'only admin');
-    // token.mint(to, amount);
+    function receiv(address to, string memory _data) external {
     emit Transfer(
       msg.sender,
       to,
-      data,
+      _data,
       block.timestamp,
       Step.Receive
     );
